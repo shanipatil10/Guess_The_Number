@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flip Animation</title>
+    <style>
+        /* Basic Page Setup */
+        img{
+            color:aquamarine;
+        }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Container for the card */
+        .card-container {
+            perspective: 1000px; /* Enable 3D space for the flip effect */
+        }
+
+        /* The card itself */
+        .card {
+            width: 200px;
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+            transform-style: preserve-3d; /* Maintain 3D space during rotation */
+            transition: transform 0.6s ease; /* Smooth transition */
+        }
+
+        /* Front side of the card */
+        .card .front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border:2px solid;
+            background-color:white; /* Front color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border-radius: 10px;
+            backface-visibility: hidden; /* Hide the back side when front is facing */
+        }
+
+        /* Back side of the card */
+        .card .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f1; /* Back color */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            border-radius: 10px;
+            transform: rotateY(180deg); /* Initially rotate back side */
+            backface-visibility: hidden; /* Hide the front side when back is facing */
+        }
+
+        /* Flip the card on click */
+        .card.flipped {
+            transform: rotateY(180deg); /* Rotate the card when clicked */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="front">
+                <IMG SRC="https://www.shutterstock.com/image-photo/ace-diamonds-playing-card-isolated-260nw-135188972.jpg"HEIGHT=200PX WIDTH=300PX>
+
+            </div>
+            <div class="back">
+                <IMG SRC="https://www.shutterstock.com/image-photo/four-hearts-playing-card-isolated-260nw-134168915.jpg"HEIGHT=200PX WIDTH=300PX>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
